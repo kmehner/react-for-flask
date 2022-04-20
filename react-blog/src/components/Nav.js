@@ -12,6 +12,7 @@ export default function Nav() {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                   <a href='/'>Home</a>
+                  <a href='/sign-up'>Sign Up</a>
               </div>
             </div>
         </div>
