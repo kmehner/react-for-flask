@@ -10,12 +10,9 @@ export default function Nav() {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-                <a href='/'>Home</a>
-                {/* <Link className="nav-link" to="/">Home</Link>
-                <Link className="nav-link" to="/racers">Racers</Link>
-                <Link className="nav-link" to="/test">Test</Link> */}
-            </div>
+              <div className="navbar-nav">
+                  <a href='/'>Home</a>
+              </div>
             </div>
         </div>
     </nav>
