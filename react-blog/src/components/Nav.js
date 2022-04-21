@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Nav() {
+export default function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -12,8 +12,17 @@ export default function Nav() {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                   <a href='/'>Home</a>
-                  <a href='/sign-up'>Sign Up</a>
-                  <a href='/login'>Login</a>
+                  { props.loggedIn ? (
+                    <>
+                      <a href='/'>Posts</a>
+                      <a href='/' onClick={props.logout}>Logout</a>
+                    </>
+                  ) : (
+                    <>
+                      <a href='/sign-up'>Sign Up</a>
+                      <a href='/login'>Login</a>
+                    </>
+                  )}   
               </div>
             </div>
         </div>
