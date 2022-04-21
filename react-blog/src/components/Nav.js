@@ -13,6 +13,7 @@ export default function Nav() {
               <div className="navbar-nav">
                   <a href='/'>Home</a>
                   <a href='/sign-up'>Sign Up</a>
+                  <a href='/login'>Login</a>
               </div>
             </div>
         </div>

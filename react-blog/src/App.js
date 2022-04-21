@@ -4,7 +4,7 @@ import AlertMessage from "./components/AlertMessage";
 import Nav from "./components/Nav";
 import Home from "./views/Home"
 import Signup from "./views/SignUp";
-
+import Login from "./views/Login";
 
 
 export default class App extends Component{
@@ -14,13 +14,24 @@ export default class App extends Component{
       this.state = {
           base_url: 'https://kekambas-blog.herokuapp.com/',
           message: null,
-          category: null
+          category: null,
+          loggedIn: localStorage.getItem('token') ? true : false
       }
   }
 
   flashMessage = (message, category) => {
     this.setState({message, category})
   }
+
+  login = () => {
+    this.setState({loggedIn: true})
+  };
+
+  logout = () => {
+    localStorage.removeItem('token');
+    this.flashMessage("You have successfully logged out", "success");
+    this.setState({loggedIn: false});
+  };
 
   render(){
     return(
@@ -32,6 +43,7 @@ export default class App extends Component{
           <Routes>
             {/* <Route path="/"        element={<Home />} /> */}
             <Route path='/sign-up' element={<Signup base_url = {this.state.base_url} flashMessage={this.flashMessage}/>}/>
+            <Route path="/login"   element={<Login  base_url = {this.state.base_url} flashMessage={this.flashMessage} loggedIn={this.state.loggedIn}/>}/>
           </Routes>
         </div>
       </div>

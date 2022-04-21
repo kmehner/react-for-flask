@@ -4,17 +4,41 @@ import { useNavigate } from "react-router-dom";
 export default function Login(props){
     let navigate = useNavigate();
     let base_url = props.base_url
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log('Handle Submit')
 
         //Login request 
-        var myHeaders = new Headers();
+        let username = e.target.username.value;
+        let password = e.target.password.value;
 
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', "Basic " + btoa(`${username}:${password}`))
 
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
 
+        }
 
+        fetch(`${base_url}/auth/token`, requestOptions)
+            .then(res => res.json())
+            .then (data => {
+
+                if (data.error){
+                    this.props.flashMessage('Your username/password is incorrect', 'danger')
+                } else {
+                    let token = data.token 
+                    localStorage.setItem('token', token)
+                    props.flashMessage("You have successfully logged in.", "success")
+                    props.login()
+                    navigate('/')
+
+                }
+            })
     } 
 
     return(
