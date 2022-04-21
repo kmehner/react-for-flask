@@ -41,7 +41,7 @@ export default class App extends Component{
           <p>hello this is app.js</p>
           {this.state.message ? <AlertMessage category={this.state.category} message={this.state.message} flashMessage={this.flashMessage}/> : null}
           <Routes>
-            {/* <Route path="/"        element={<Home />} /> */}
+            <Route path="/"        element={<Home />} />
             <Route path='/sign-up' element={<Signup base_url = {this.state.base_url} flashMessage={this.flashMessage}/>}/>
             <Route path="/login"   element={<Login  base_url = {this.state.base_url} flashMessage={this.flashMessage} loggedIn={this.state.loggedIn}/>}/>
           </Routes>
