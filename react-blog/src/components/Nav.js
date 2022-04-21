@@ -12,10 +12,10 @@ export default function Nav(props) {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                   <a href='/'>Home</a>
+                  <a href='/blog'>Posts</a>
                   { props.loggedIn ? (
                     <>
-                      <a href='/'>Posts</a>
-                      <a href='/' onClick={props.logout}>Logout</a>
+                      <a href='/' onClick={props.logUserOut}>Logout</a>
                     </>
                   ) : (
                     <>
