@@ -45,9 +45,10 @@ export default function Login(props){
                         }
                     })
                 }
-            }
-    )}
-
+            })
+    
+    }
+    
     return(
         <form onSubmit={handleSubmit}>
             <h1>Log In</h1>

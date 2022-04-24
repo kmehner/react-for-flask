@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 
 // View all posts 
@@ -19,19 +19,19 @@ export default function Blog(props){
 
     useEffect(() => {
         console.log("Blog data fetch")
-        fetch(`${base_url}/blog/posts`, requestOptions)
-        .then(res => res.json())
-        .then(data => setPosts(data))
-        console.log("Fetch complete")
-        console.log(posts)
+        fetch(`${base_url}blog/posts`, requestOptions)
+            .then(res => res.json())
+            .then(data => setPosts(data))
+                console.log("Fetch complete")
+                console.log(posts)
     }, [])
 
     return (
-        <>
+        <div>
             <h2 className="text-center">All Posts</h2>
 
-            {posts.map(p => <Card post={p} key={p.id} base_url = {base_url}/>)}
-        </>
+            {posts.map(p => <Card post={p} key={p.id} />)}
+        </div>
     )
 
 
