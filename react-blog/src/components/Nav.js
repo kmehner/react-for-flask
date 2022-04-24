@@ -15,6 +15,7 @@ export default function Nav(props) {
                   <a href='/blog'>Posts</a>
                   { props.loggedIn ? (
                     <>
+                       <Link className="nav-link" to="/createpost">Create Post</Link>
                       <a href='/' onClick={props.logUserOut}>Logout</a>
                     </>
                   ) : (
